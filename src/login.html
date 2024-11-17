@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>光伏-索比光伏网-光伏太阳能产业专业媒体</title>
+        <meta name="keywords" content="光伏,光伏发电,太阳能,太阳能光伏发电,太阳能发电,光伏产业,分布式光伏发电,光伏太阳能,光伏行业,光伏网,太阳能光伏网,光伏论坛,光伏并网,光伏工程,光伏网站,中国太阳能光伏网,太阳能光伏论坛" />
+        <meta name="description" content="索比光伏网是中国光伏太阳能产业权威网站，为用户提供最新的光伏太阳能资讯、光伏发电政策、光伏电站项目、光伏企业、光伏产业，光伏发电，太阳能光伏论坛，光伏逆变器，光伏供求、光伏展会、光伏电站、分布式光伏发电、光伏组件、电池片、多晶硅、光伏上网电价等光伏行业信息。" />
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="app">
+            <div class="layout">
+                <header>
+                    <div class="main">
+                        <div class="logo">
+                            <a href="/" alt="索比光伏网">&nbsp;</a>
+                            <i>欢迎登录</i>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="https://www.solarbe.com/" target="_blank">SolarBlobal</a></li>
+                                <li><a href="https://www.solarbe.com/" target="_blank">BIPV</a></li>
+                                <li><a href="https://www.solarbe.com/" target="_blank">索比光伏网</a></li>
+                                <li><a href="https://www.solarbe.com/" target="_blank">碳索储能网</a></li>
+                                <li><a href="https://www.solarbe.com/" target="_blank">碳索氢能网</a></li>
+                                <li><a href="https://www.solarbe.com/" target="_blank">招聘网</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+                <main>
+                    <div class="bg">
+                        <div class="main">
+                            <section class="proimg">&nbsp;</section>
+                            <section class="login">
+                                <div class="align-right">
+                                    <div id="loginbox">
+                                        <ul>
+                                            <li>
+                                                <a href="#tabs-1">密码登录<i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#tabs-2">短信登录<i></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="tabs-1">
+                                            <form action="" method="post" class="login-form">
+                                                <div id="itemBox" class="item-box">
+                                                    <div class="item">
+                                                        <i class="icon-login-user"></i>
+                                                        <input type="text" name="email" placeholder="请填写邮箱" autocomplete="off" />
+                                                    </div>
+                                                    <div class="item">
+                                                        <i class="icon-login-pwd"></i>
+                                                        <input type="password" name="password" placeholder="请填写密码" autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                                <div class="login_btn_panel">
+                                                    <input type="hidden" name="_token" value="<?= csrf_token() ?>" />
+                                                    <button class="login-btn" type="submit">
+                                                        <span class="in"><i class="icon-loading"></i>登 录 中...</span>
+                                                        <span class="on">登 录</span>
+                                                    </button>
+                                                    <div class="check-tips"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-content" id="tabs-2" style="display: none">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+                                        <aside>
+                                            <p>没有账户？<a href="/register">立即注册</a></p>
+                                            <p>忘记密码？<a href="/forgot-password">找回密码</a></p>
+                                        </aside>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </main>
+                <footer>
+                    <div class="main">碳索新能版权所有</div>
+                </footer>
+            </div>
+        </div>
+        <script src="./js/lib/j.js"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>

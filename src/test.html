@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>火狐主页管理系统</title>
+        <style>
+            ﻿html,
+            body {
+                font: 14px/1.5 "microsoft yahei", Helvetica, Tahoma, Arial, sans-serif;
+                color: #404040;
+            }
+            body,
+            p,
+            pre,
+            blockquote,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            dl,
+            dt,
+            dd,
+            ul,
+            ol,
+            li,
+            form,
+            select,
+            input,
+            textarea,
+            button,
+            table,
+            caption,
+            tr,
+            th,
+            td {
+                margin: 0;
+                padding: 0;
+            }
+            ol,
+            ul,
+            li {
+                list-style: none;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            img {
+                max-width: 100%;
+                border: 0 none;
+            }
+            a {
+                color: #666;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: none;
+            }
+            input,
+            button,
+            textarea,
+            select,
+            option {
+                font-family: inherit;
+                font-size: 100%;
+                outline: 0;
+            }
+            textarea {
+                overflow: auto;
+                resize: none;
+            }
+            button::-moz-focus-inner,
+            input::-moz-focus-inner {
+                border: 0;
+                padding: 0;
+            }
+            body {
+                margin: 0 auto;
+                min-width: 980px;
+                background-color: #edf6fa;
+                background-repeat: no-repeat;
+                background-position: center top;
+                overflow: hidden;
+            }
+            ul {
+                display: block;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            li {
+                display: block;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            img {
+                border: 0;
+            }
+            dl,
+            dt,
+            dd,
+            span {
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            a,
+            a:focus {
+                text-decoration: none;
+                color: #000;
+                outline: none;
+            }
+            a:hover {
+                color: #00a4ac;
+                text-decoration: none;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            cite {
+                font-style: normal;
+            }
+            h2 {
+                font-weight: normal;
+            }
+
+            /* Top */
+            .login-top {
+                height: 30px;
+                position: absolute;
+                top: 0;
+                background: #706f6f;
+                z-index: 100;
+                width: 100%;
+            }
+            .login-top ul {
+                float: right;
+                padding-right: 30px;
+            }
+            .login-top ul li {
+                float: left;
+                margin-left: 20px;
+                line-height: 30px;
+            }
+            .login-top ul li a {
+                color: #afc5d2;
+            }
+            .login-top ul li a:hover {
+                color: #fff;
+            }
+            /* Top */
+
+            /* Login */
+            .login-body {
+                width: 100%;
+                height: 585px;
+                overflow: hidden;
+                position: absolute;
+                top: 47px;
+            }
+            .login-box {
+                width: 692px;
+                height: 425px;
+                margin-top: 90px;
+            }
+            .login-box ul {
+                margin-top: 88px;
+                margin-left: 285px;
+            }
+            .login-box ul li {
+                margin-bottom: 25px;
+            }
+            .login-box ul li label {
+                color: #687f92;
+                padding-left: 25px;
+            }
+            .login-box ul li label a {
+                color: #687f92;
+            }
+            .login-box ul li label a:hover {
+                color: #3d96c9;
+            }
+            .login-box ul li label input {
+                margin-right: 5px;
+            }
+            .login-btm {
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+                background: #706f6f;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                color: #ffffff;
+            }
+            .login-btm a {
+                font-weight: bold;
+                color: #ffffff;
+            }
+            .login-btm a:hover {
+                color: #ffffff;
+            }
+            .login-form {
+                width: 290px;
+                margin: 1px auto;
+                border-radius: 4px;
+                padding: 25px 30px 13px;
+                background-color: #fff;
+                box-shadow: 0 0 26px #041a36;
+                border-top: 8px solid #c13832;
+            }
+            .login-form h3 {
+                font-size: 26px;
+                font-weight: normal;
+                margin: 0 0 20px;
+                padding: 0;
+                line-height: 44px;
+                text-align: center;
+                color: #8d9caa;
+                *line-height: 50px;
+            }
+            .login-form .check-tips {
+                color: #ff0000;
+                margin-top: 10px;
+            }
+            .login-form .item-box .item {
+                border-radius: 5px;
+            }
+            .login-form .item {
+                padding: 3px 10px 3px 12px;
+                border: 1px solid #ececec;
+                margin-bottom: 10px;
+            }
+            .login-form .focus {
+                border: 1px solid #a6e1f3;
+                box-shadow: 0 0 12px #baf7ff;
+            }
+            .login-form .icon-login-user,
+            .login-form .icon-login-pwd,
+            .login-form .icon-login-verifycode {
+                display: inline-block;
+                margin-right: 6px;
+                width: 24px;
+                height: 24px;
+                vertical-align: middle;
+                background: url("../images/icon24_login.png") no-repeat;
+            }
+            .login-form .icon-login-user {
+                background-position: 0 0;
+            }
+            .login-form .icon-login-pwd {
+                background-position: -48px 0;
+            }
+            .login-form .icon-login-verifycode {
+                background-position: -24px 0;
+            }
+            .login-form input {
+                padding: 8px 0;
+                width: 220px;
+                height: 22px;
+                line-height: 22px;
+                font-size: 16px;
+                font-family: "微软雅黑", arial, sans-serif;
+                vertical-align: middle;
+                border: 0 none;
+                background-color: #fff;
+                outline: 0;
+                resize: none;
+                color: #686868;
+            }
+            #itemBox {
+                position: relative;
+            }
+            .placeholder-copy {
+                display: none;
+                position: absolute;
+                left: 48px;
+                font-size: 16px;
+                color: #adadad;
+            }
+            .placeholder_un {
+                top: 13px;
+            }
+            .placeholder_pwd {
+                top: 69px;
+            }
+            .placeholder_check {
+                top: 125px;
+            }
+            .login-form .verifycode input {
+                width: 166px;
+                font-size: 16px;
+            }
+            .login-form .verifycode img {
+                vertical-align: middle;
+            }
+            .login-form .login_btn_panel {
+                margin: 20px 0 10px;
+            }
+            .login-form .login-btn {
+                padding: 3px 0;
+                width: 100%;
+                height: 48px;
+                font-size: 22px;
+                font-weight: bold;
+                color: #ffffff;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+                border: 0;
+                background-color: #c13832;
+            }
+            .login-form .login-btn:hover {
+                background-color: #9e1913;
+            }
+            .login-form .login-btn[disabled] {
+                opacity: 0.6;
+                filter: alpha(opacity=60);
+                cursor: default;
+                box-shadow: none;
+            }
+            .login-form .login-btn .in {
+                display: none;
+            }
+            .login-form .log-in .in {
+                display: inline-block;
+            }
+            .login-form .log-in .on {
+                display: none;
+            }
+            .icon-loading {
+                display: inline-block;
+                margin-right: 5px;
+                width: 16px;
+                height: 16px;
+                vertical-align: -3px;
+                background: url(../images/loading_icon.gif) no-repeat 0 0;
+            }
+            .reload-verify {
+                color: #69c3ff;
+            }
+            .welcome {
+                color: #ddd;
+                padding: 1px;
+            }
+            img.verifyimg {
+                cursor: pointer;
+                width: 100%;
+                height: 60px;
+            }
+        </style>
+        <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+    </head>
+    <body>
+        <div class="login-top">
+            <ul>
+                <li><a href="http://www.firefox.com.cn/" target="_blank">Mozilla官网</a></li>
+                <li><a href="http://mozilla.com.cn/moz-portal.html" target="_blank">Mozilla社区</a></li>
+            </ul>
+        </div>
+        <div class="login-body">
+            <div class="login-box">
+                <form action="" method="post" class="login-form">
+                    <h3 class="welcome">火狐主页管理系统</h3>
+                    <div id="itemBox" class="item-box">
+                        <div class="item">
+                            <i class="icon-login-user"></i>
+                            <input type="text" name="email" placeholder="请填写邮箱" autocomplete="off" />
+                        </div>
+                        <span class="placeholder-copy placeholder_un">请填写邮箱</span>
+                        <div class="item b0">
+                            <i class="icon-login-pwd"></i>
+                            <input type="password" name="password" placeholder="请填写密码" autocomplete="off" />
+                        </div>
+                        <span class="placeholder-copy placeholder_pwd">请填写密码</span>
+                        <div class="item verifycode">
+                            <i class="icon-login-verifycode"></i>
+                            <input type="text" name="code-img" placeholder="请填写验证码" autocomplete="off" />
+                            <a class="reloadverify tips" title="换一张" href="javascript:void(0)">换一张</a>
+                        </div>
+                        <span class="placeholder-copy placeholder_check">请填写验证码</span>
+                        <div><img class="verifyimg reloadverify" alt="点击切换" src="/captcha" /></div>
+                    </div>
+                    <div class="login_btn_panel">
+                        <input type="hidden" name="_token" value="<?= csrf_token() ?>" />
+                        <button class="login-btn" type="submit">
+                            <span class="in"><i class="icon-loading"></i>登 录 中...</span>
+                            <span class="on">登 录</span>
+                        </button>
+                        <div class="check-tips"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="login-btm">版权所有 © 2014-2022 北京谋智网络技术有限公司</div>
+        <script language="javascript">
+            $(function () {
+                $(".login-box").css({ position: "absolute", left: ($(window).width() - 692) / 2 });
+                $(window).resize(function () {
+                    $(".login-box").css({ position: "absolute", left: ($(window).width() - 692) / 2 });
+                });
+            });
+            /* 表单获取焦点变色 */
+            $(".login-form")
+                .on("focus", "input", function () {
+                    $(this).closest(".item").addClass("focus");
+                })
+                .on("blur", "input", function () {
+                    $(this).closest(".item").removeClass("focus");
+                });
+            /* 表单提交 */
+            $(document)
+                .ajaxStart(function () {
+                    $("button:submit").addClass("log-in").attr("disabled", true);
+                })
+                .ajaxStop(function () {
+                    $("button:submit").removeClass("log-in").attr("disabled", false);
+                });
+            $("form").submit(function () {
+                var self = $(this);
+                $.post(self.attr("action"), self.serialize(), success, "json");
+                return false;
+                function success(data) {
+                    if (data.status) {
+                        window.location.href = data.url;
+                    } else {
+                        self.find(".check-tips").text(data.info);
+                        //刷新验证码
+                        $(".reloadverify").click();
+                    }
+                }
+            });
+            $(function () {
+                var verifyimg = $(".verifyimg").attr("src");
+                $(".reloadverify").click(function () {
+                    if (verifyimg.indexOf("?") > 0) {
+                        $(".verifyimg").attr("src", verifyimg + "&random=" + Math.random());
+                    } else {
+                        $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/, "") + "?" + Math.random());
+                    }
+                });
+                //初始化选中用户名输入框
+                $("#itemBox").find("input[name=email]").focus();
+                //placeholder兼容性
+                //如果支持
+                function isPlaceholer() {
+                    var input = document.createElement("input");
+                    return "placeholder" in input;
+                }
+                //如果不支持
+                if (!isPlaceholer()) {
+                    $(".placeholder-copy").css({
+                        display: "block",
+                    });
+                    $("#itemBox input").keydown(function () {
+                        $(this).parents(".item").next(".placeholder-copy").css({
+                            display: "none",
+                        });
+                    });
+                    $("#itemBox input").blur(function () {
+                        if ($(this).val() == "") {
+                            $(this).parents(".item").next(".placeholder-copy").css({
+                                display: "block",
+                            });
+                        }
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
